@@ -20,7 +20,7 @@ export default function Home() {
     console.log('Description:', description);
 
     // Update searchResults state
-    setSearchResults({ tag: query, description });
+    //setSearchResults({ tag: query, description });
   };
 
   return (
