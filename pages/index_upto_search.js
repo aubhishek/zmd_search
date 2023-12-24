@@ -1,26 +1,15 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
-import { useState } from 'react';  // Import useState
 import styles from '@/styles/Home.module.css';
-import { getTagDescription } from '../data/data';
-import SearchBar from '../components/SearchBar';
+import SearchBar from '../components/SearchBar'; // Assuming the correct path to SearchBar
 
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
-  const [searchResults, setSearchResults] = useState(null);  // Define searchResults state
-
   const handleSearch = (query) => {
-    // Use getTagDescription to get the description based on the query
-    const description = getTagDescription(query);
-  
-    // Update your page content or log the description
+    // Implement your search logic here based on the query
     console.log('Search query:', query);
-    console.log('Description:', description);
-
-    // Update searchResults state
-    setSearchResults({ tag: query, description });
   };
 
   return (
@@ -49,18 +38,9 @@ export default function Home() {
             placeholder="Search your disease"
             // Add any additional styling or props for highlighting
           />
-          
-          {/* Display search results */}
-          {searchResults && (
-            <div className="mt-4">
-              <h2>Search Results</h2>
-              <p>Tag: {searchResults.tag}</p>
-              <p>Description: {searchResults.description}</p>
-            </div>
-          )}
-
-          {/* Additional content goes here */}
         </div>
+
+        {/* Additional content goes here */}
       </main>
     </>
   );
