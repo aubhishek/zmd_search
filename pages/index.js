@@ -13,14 +13,14 @@ export default function Home() {
 
   const handleSearch = (query) => {
     // Use getTagDescription to get the description based on the query
-    const description = getTagDescription(query);
+    //const description = getTagDescription(query);
   
     // Update your page content or log the description
-    console.log('Search query:', query);
-    console.log('Description:', description);
+    console.log('Search query:', query.tag);
+    console.log('Description:', query.description);
 
     // Update searchResults state
-    setSearchResults({ tag: query, description });
+    setSearchResults(query);
   };
 
   return (
