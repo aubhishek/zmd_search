@@ -20,7 +20,6 @@ const SearchBar = ({ onSearch }) => {
         type="text"
         placeholder="Search for a disease..."
         value={query}
-        onChange={handleInputChange}
         className="p-2 border border-gray-300 rounded mr-2"
       />
       <button onClick={handleSearch} className="p-2 bg-gray-800 text-white rounded">
