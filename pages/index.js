@@ -8,19 +8,30 @@ import SearchBar from '../components/SearchBar';
 
 const inter = Inter({ subsets: ['latin'] });
 
+const formatDescription = (description) => {
+  const segments = description.split('(\n');
+  const formattedDescription = segments.map((segment, index) => (
+    <div key={index}>
+      <p>{segment.trim()}</p>
+    </div>
+  ));
+  return formattedDescription;
+};
+
+
 export default function Home() {
   const [searchResults, setSearchResults] = useState(null);  // Define searchResults state
 
   const handleSearch = (query) => {
     // Use getTagDescription to get the description based on the query
-    const description = getTagDescription(query);
+    //const description = getTagDescription(query);
   
     // Update your page content or log the description
-    console.log('Search query:', query);
-    console.log('Description:', description);
+    console.log('Search query:', query.tag);
+    console.log('Description:', query.description);
 
     // Update searchResults state
-    setSearchResults({ tag: query, description });
+    setSearchResults(query);
   };
 
   return (
@@ -52,10 +63,13 @@ export default function Home() {
           
           {/* Display search results */}
           {searchResults && (
-            <div className="mt-4">
-              <h2>Search Results</h2>
-              <p>Tag: {searchResults.tag}</p>
-              <p>Description: {searchResults.description}</p>
+            <div className="mt-4" style={{ color: 'white' }}>
+              {/*<h2>Search Results</h2>*/}
+              <p>Disease found: {searchResults.tag}</p>
+              <div className="grid grid-cols-2 gap-4">
+                {formatDescription(searchResults.description)}
+              <p>{searchResults.description}</p>
+              </div>
             </div>
           )}
 
