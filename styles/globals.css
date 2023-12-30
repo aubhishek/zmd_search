@@ -105,3 +105,19 @@ a {
     color-scheme: dark;
   }
 }
+
+.description-line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px; /* Adjust margin as needed */
+}
+
+.left {
+  flex-basis: 40%; /* Adjust the width of the left column as needed */
+  text-align: left;
+}
+
+.right {
+  flex-basis: 50%; /* Adjust the width of the right column as needed */
+  text-align: left;
+}
